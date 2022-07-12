@@ -1,4 +1,6 @@
-# DA4RDM-RDF-RecSys
+# DA4RDM-RecSys
 
 This project includes:
-- The python package based on RDF graphs data.
+- Recommender system based on RDF graphs
+- Recommender system based on activity traces
+- Recommender system based on process mining models
