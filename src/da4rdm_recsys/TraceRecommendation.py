@@ -1,10 +1,10 @@
-'''
+"""
 The below function provides recommendation based on trace interpretation. The distance metric parameter can be set to any
 value accepted as per sklearn.metrics.DistanceMetric. The available output formats are "csv", "png", "jpeg", "pdf" and
 "json". The defaults for these parameters can be
 seen in the function definition. The required parameters are user interaction dataset and the
 resource dataset along with the reference key resource.
-'''
+"""
 
 import pandas as pd
 from sklearn.cluster import KMeans
@@ -15,6 +15,9 @@ import json
 import sys
 import matplotlib.pylab as plt
 from da4rdm_recsys.TraceFeatures import create_trace_features
+import warnings
+
+warnings.filterwarnings("ignore")
 
 
 def normalize(df):
@@ -90,20 +93,20 @@ def get_trace_based_recommendations(dataset_user_interactions, dataset_resources
         fig, ax = plt.subplots(figsize=(15, 30))
         sns.heatmap(recommendations_wide, annot=True, ax=ax)
         if output_format.lower() == "png":
-            plt.savefig("Data/Outputs/Trace_Recommendations_Heatmap.png")
+            plt.savefig("Trace_Recommendations_Heatmap.png")
         elif output_format.lower() == "jpeg":
-            plt.savefig("Data/Outputs/Trace_Recommendations_Heatmap.jpeg")
+            plt.savefig("Trace_Recommendations_Heatmap.jpeg")
         elif output_format.lower() == "pdf":
-            plt.savefig("Data/Outputs/Trace_Recommendations_Heatmap.pdf")
+            plt.savefig("Trace_Recommendations_Heatmap.pdf")
         elif output_format.lower() == "json":
             details = {
                 'Recommendations': dict(ResourceID=recommendations['ResourceId'].to_list(),
                                         Distance=recommendations['Distance'].to_list()),
             }
-            with open('Data/Outputs/Trace_Recommendations.json', 'w') as json_file:
+            with open('Trace_Recommendations.json', 'w') as json_file:
                 json.dump(details, json_file)
         elif output_format.lower() == "csv":
-            recommendations.to_csv("Data/Outputs/Trace_Recommendations.csv")
+            recommendations.to_csv("Trace_Recommendations.csv")
     except Exception as e:
         sys.exit("Oops! " + str(e.__class__) + " occurred. Error in saving results")
 
