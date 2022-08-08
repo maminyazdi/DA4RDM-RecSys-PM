@@ -1,10 +1,10 @@
-'''
+"""
 The below function provides recommendation based on model interpretation. The distance metric parameter can be set to any
 value accepted as per sklearn.metrics.DistanceMetric. The available output formats are "csv", "png", "jpeg", "pdf" and
 "json". The replay fitness method can be set to either "token" or "alignment". The defaults for these parameters can be
 seen in the function definition. The required parameters are user interaction dataset and the
 resource dataset along with the reference key resource.
-'''
+"""
 
 
 import pandas as pd
@@ -16,6 +16,9 @@ import seaborn as sns
 import json
 import sys
 import matplotlib.pylab as plt
+import warnings
+
+warnings.filterwarnings("ignore")
 
 
 def normalize(df):
@@ -93,16 +96,16 @@ def get_model_based_recommendations(dataset_user_interactions, dataset_resources
         elif output_format.lower() == "jpeg":
             plt.savefig("Model_Recommendations_Heatmap.jpeg")
         elif output_format.lower() == "pdf":
-            plt.savefig("Data/Outputs/Model_Recommendations_Heatmap.pdf")
+            plt.savefig("Model_Recommendations_Heatmap.pdf")
         elif output_format.lower() == "json":
             details = {
                 'Recommendations': dict(ResourceID=recommendations['ResourceId'].to_list(),
                                         Distance=recommendations['Distance'].to_list()),
             }
-            with open('Data/Outputs/Model_Recommendations.json', 'w') as json_file:
+            with open('Model_Recommendations.json', 'w') as json_file:
                 json.dump(details, json_file)
         elif output_format.lower() == "csv":
-            recommendations.to_csv("Data/Outputs/Model_Recommendations.csv")
+            recommendations.to_csv("Model_Recommendations.csv")
     except Exception as e:
         sys.exit("Oops! " + str(e.__class__) + " occurred. Error in saving results")
 
