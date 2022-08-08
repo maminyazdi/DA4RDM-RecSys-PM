@@ -21,6 +21,7 @@ Below is an execution of the function with all parameters provided.
 import da4rdm_recsys
 from da4rdm_recsys import ModelRecommendation
 ModelRecommendation.get_model_based_recommendations("21-06-2022.csv", "tomography.csv", "1faa54d3-122b-41fd-ace3-2b698fc1326f", "alignment", "euclidean", "csv")
+````
 
 Below is an execution of the function with only the required parameters provided.
 ```python
@@ -36,13 +37,6 @@ Below is an execution of the function with all parameters provided.
 import da4rdm_recsys
 from da4rdm_recsys import TraceRecommendation
 TraceRecommendation.get_trace_based_recommendations("21-06-2022.csv", "tomography.csv", "1faa54d3-122b-41fd-ace3-2b698fc1326f", "alignment", "euclidean", "csv")
-```
-
-
-from da4rdm_vis import Evaluate
-
-correlation = Evaluate.eval_corr("RDM_lifecycle_analysis_-_28-04-2022.csv", 'BA1FD94A-CC71-4D32-80AE-67DD2C3BF19A')
-Visualize.visualize(correlation, 'jpeg')
 ```
 
 ## Project status
