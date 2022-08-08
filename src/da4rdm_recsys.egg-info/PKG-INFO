@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: da4rdm-recsys
+Version: 0.0.3
+Summary: Test Package that can be used to get recommendation based on process models and trace analysis
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# da4rdm-recsys
+
+## Description
+The da4rdm-recsys is a python based package that allows retreiving recommendation based on the resource interaction pattern analyzed based on either trace or model approach. Normalized similarity based distance information can be extracted and vizualized. 
+
+
+## Installation
+The package is built using Python as a programming language and utilizes basic python packages. It uses the visualization package matplotlib . Please make sure the necessary packages are installed before execution. Few other packages include sklearn, scipy, seaborn,json etc. The test package can be installed using the pip command provided below.
+
+pip install -i https://test.pypi.org/simple/ da4rdm-recsys
+
+## Usage and Examples
+The package provides recommendation based on user inputs for the parameters.
+
+Function Inputs:<br />
+The function **get_model_based_recommendations** accepts three mandatory positional arguments namely the path for the event log, the resource data and the Resource ID to be used as a key. The optional arguments include distance metric, the oitput formats and specifically for model approach the replay fitness method can be selected from the availabe option of alighnment and token.
+
+```
+Example Usage:<br />
+Below is an execution of the function with all parameters provided.
+```python
+import da4rdm_recsys
+from da4rdm_recsys import ModelRecommendation
+ModelRecommendation.get_model_based_recommendations("21-06-2022.csv", "tomography.csv",
+
+## Project status
+The project is currently in test phase.
+
