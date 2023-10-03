@@ -1,44 +1,47 @@
-# da4rdm-recsys
-
+## Research Data Reusability with Modeling User Interaction Process Models
 ## Description
-The da4rdm-recsys is a python based package that allows retreiving recommendation based on the resource interaction pattern analyzed based on either trace or model approach. Normalized similarity based distance information can be extracted and vizualized. 
+The da4rdm-recsys is a python based package that allows retreiving recommendation based on the resource interaction pattern analyzed based on either trace or process model approach. Normalized similarity based distance information can be extracted and vizualized. 
 
+## Features
+- **Resource Interaction Analysis:** Leverages both trace and process model approaches.
+- **Normalized Similarity-Based Distance Information:** Easily extract and visualize distance information.
+- **Flexible Recommendation Generation:** Provides recommendations based on user-specified parameters.
 
 ## Installation
-The package is built using Python as a programming language and utilizes basic python packages. It uses the visualization package matplotlib . Please make sure the necessary packages are installed before execution. Few other packages include sklearn, scipy, seaborn, json etc. The test package can be installed using the pip command provided below.
+### Prerequisites
+Ensure that you have the following Python packages installed before proceeding:
 
+- `matplotlib`
+- `sklearn`
+- `scipy`
+- `seaborn`
+- `json`
+
+### Installing da4rdm-recsys
+You can install `da4rdm-recsys` using `pip` with the following command:
+
+```bash
 pip install -i https://test.pypi.org/simple/ da4rdm-recsys
-
-## Usage and Examples
-The package provides recommendation based on user inputs for the parameters.
-
-Function Inputs:<br />
-1. The function **get_model_based_recommendations** accepts three mandatory positional arguments namely the path for the event log, the resource data and the resource ID to be used as a key. The optional arguments include distance metric, the output formats and specifically for model approach the replay fitness method can be selected from the availabe option of alighnment and token.
-
-Example Usage:<br />
-Below is an execution of the function with all parameters provided.
-```python
+```
+### Usage
+- get_model_based_recommendations Function:
+    - Mandatory Arguments:
+      - Event log path
+      - Resource data
+      - Resource ID (used as a key)
+    - Optional Arguments:
+      - Distance metric
+      - Output formats
+      - Replay fitness method (for model approach only; choose between "alignment" and "token")
+### Example
+```bash
 import da4rdm_recsys
 from da4rdm_recsys import ModelRecommendation
-ModelRecommendation.get_model_based_recommendations("21-06-2022.csv", "tomography.csv", "1faa54d3-122b-41fd-ace3-2b698fc1326f", "alignment", "euclidean", "csv")
-````
-
-Below is an execution of the function with only the required parameters provided.
-```python
-import da4rdm_recsys
-from da4rdm_recsys import ModelRecommendation
-ModelRecommendation.get_model_based_recommendations("21-06-2022.csv", "tomography.csv", "1faa54d3-122b-41fd-ace3-2b698fc1326f")
+ModelRecommendation.get_model_based_recommendations("SAMPLE_DATASET", "ResourceId")
 ```
-2. The function **get_trace_based_recommendations** accepts three mandatory positional arguments namely the path for the event log, the resource data and the resource ID to be used as a key. The optional arguments include only the distance metric and the output format.
 
-Example Usage:<br />
-Below is an execution of the function with all parameters provided.
-```python
-import da4rdm_recsys
-from da4rdm_recsys import TraceRecommendation
-TraceRecommendation.get_trace_based_recommendations("21-06-2022.csv", "tomography.csv", "1faa54d3-122b-41fd-ace3-2b698fc1326f", "euclidean", "csv")
-```
+
 
 ## Project status
-The project is currently in test phase.
+The is currently in the testing phase, and we appreciate your feedback to improve its functionality and performance.
 
